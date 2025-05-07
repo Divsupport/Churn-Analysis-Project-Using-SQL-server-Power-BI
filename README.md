@@ -1,13 +1,6 @@
 # Churn-Analysis-Project-Using-SQL-server-Power-BI
 I Analyzed 7,040 telecom customer records to identify churn drivers and design retention strategies. Built an end-to-end analytics pipeline: SQL ETL for data cleaning, Power BI for visualization, and actionable insights to reduce churn by 15% (~$720K annual savings).
 
-
-
-
-# Churn Analysis Project
-
-Welcome to my end-to-end churn analysis for a telecom company. In this repository, I walk through everything I built—from establishing a SQL Server ETL pipeline and exploring customer data to creating interactive Power BI dashboards and generating actionable marketing recommendations.
-
 ## 🚀 Project Goals
 
 1. **ETL Pipeline**: I set up a Microsoft SQL Server database (`Churn_db`) to stage, clean, and transform raw customer data.
