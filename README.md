@@ -583,7 +583,7 @@ associated with churn and why customers are leaving.
 //////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////// 
 
-##Enhance Visualization 
+## Enhance Visualization 
 
 ![image](https://github.com/user-attachments/assets/decad40b-e3f9-4686-bbd3-17b40487bc87)
 
@@ -656,7 +656,7 @@ Services with low adoption (over 60% saying “No”):
 • Streaming Music – 61.1%
 
 
-## CONCLUSION 
+## Conclusions
 
 High-Risk Demographics Identified 
 • I Discovered that 35.8% of churners are female, with 50+ age group 
@@ -683,7 +683,7 @@ annual plans.
 payment users. 
 
 
-## MY RECOMMENDATION 
+## My Recommendation
 
 "Silver Shield" Loyalty Bundle for Women 50+ 
 • With Total Package Deal of (Device Protection + Premium Support + 
@@ -696,7 +696,7 @@ upgrade which is a strong counter to competitors offers.
 20% effective discount to reduce month-to-month volatility. 
 
 
-## IMPACT I ENABLED 
+## Impact I Enabled
 • With these Dashboard-Driven Decisions, Executives can now 
 track real-time churn drivers like "Competitor Offers" (23% of 
 churn) vs "Service Dissatisfaction" (18%). 
