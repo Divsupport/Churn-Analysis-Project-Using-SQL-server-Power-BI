@@ -211,6 +211,158 @@ column IS NULL THEN 1 ELSE 0 END).
 • This result tells me which columns have missing data. 
 • Is First Assigning NULL Values As 1 and else 0 and saves it As an Alias
 
+## Data Exploration – Data Cleaning - Null Value Removal
+
+Now the next Step, is to Remove this NULLs Values  
+I will be replacing these Nulls values and inserting the data into a new table 
+which will be a Production Table. 
+This table will be used as the source of all upcoming steps
+
+![image](https://github.com/user-attachments/assets/f5480d9b-47f5-4098-8d19-8d85e5b3990d)
+
+In this step, I performed data cleaning by removing or handling NULL values 
+and saved the cleaned results into a new table called churn_Production: 
+
+• I used the ISNULL() function to replace NULLs with default values for 
+specific columns: 
+o For service-related columns like Multiple_Lines, Online_Security, 
+etc., I replaced NULL with 'No'. 
+
+
+o For Value_Deal and Internet_Type, I replaced NULL with 'None'. 
+o For churn-related fields like Churn_Category and Churn_Reason, I 
+replaced NULL with 'Others'. 
+• I kept columns like Customer_ID, Gender, Age, Contract, and others 
+unchanged because they didn't contain any NULLs. 
+• Finally, I saved the cleaned data onto a new table called 
+churn_Production to keep the original data intact and work with a clean 
+version going forward.
+
+![image](https://github.com/user-attachments/assets/fd231d1f-26af-461b-9dbf-c5736ebaac0f)
+
+Churn_Production has now appeared on the explorer panel. 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////////////////////////////////////////////////
+
+## Data Exploration – View for Visual Table 
+
+In a Database, the main purpose of VIEW is to create a Virtual Table, so as this 
+view will not have any physical Presence on the Database itself, which I am 
+being careful of, and it will provide me with the Output when a Query calls for 
+it
+
+
+![image](https://github.com/user-attachments/assets/a3b4f68d-738e-48f6-8285-49bce056208d)
+
+The Dropdown message shows success and if you look at the left-hand corner 
+of the explorer panel, you will see the view option
+
+![image](https://github.com/user-attachments/assets/c493d7e6-355f-4d2a-b6c7-09f2785fec13)
+
+
+
+Now that’s my virtual table 
+Now all data from the churn_Production table will be on the view
+
+Now I will move into the Power BI Visualization Tool, which is a powerful 
+business intelligence platform used to create interactive dashboards and 
+visual reports from the cleaned and processed data. 
+
+I’m done with the SQL aspect of this Project. 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+## Power BI Transform 
+
+I will be using the Microsoft Power BI Desktop Application for my visualization. 
+https://www.microsoft.com/fr-fr/download/details.aspx?id=58494
+
+
+![image](https://github.com/user-attachments/assets/bc2f1e6c-c04a-495b-9273-ce3fdb3b83db)
+
+After completing the download and installation, I will open a blank report. 
+Since I want to import my SQL queries, I will click the Get Data button in the 
+top left corner and select the SQL Server option.
+
+
+![image](https://github.com/user-attachments/assets/76fbcd10-070d-4c0e-aed9-f5ee9215a45f)
+
+
+![image](https://github.com/user-attachments/assets/8c745ed8-5640-4bdf-afb9-ae3b314cc4db)
+
+Now I will copy my server’s name and import on the server and click on 
+import, which is on my connection page of my SQL server Application.
+
+![image](https://github.com/user-attachments/assets/3d0e5136-8790-467e-84d1-f513b8ef9e47)
+
+![image](https://github.com/user-attachments/assets/0a9c9eef-9fb5-4a6d-9d1f-57ced775e4ae)
+
+Then I will click on OK, which will prompt me to the Navigator panel
+
+![image](https://github.com/user-attachments/assets/f9ac96f1-57f8-4738-9f10-efcf10586c16)
+
+Now I will select the churn_production and click on transform Data which will 
+prompt me to the power query editor where I will transform and edit this data.
+
+![image](https://github.com/user-attachments/assets/e5f387ab-b595-4f7d-9b19-45b82f12e624)
+
+![image](https://github.com/user-attachments/assets/1c751375-a8f9-46b0-8747-84257e181577)
+
+Looking at the Customer_Status column which has three values which are 
+stayed, churned, and joined. I would like to create another column which will 
+be a number column which defines whether a certain row is for churned or not 
+
+• I will click on add column then custom column and call it churn status 
+• And add this DAX formulae to it If [Customer_Status] = “Churned” then 1 
+else 0
+
+![image](https://github.com/user-attachments/assets/d43d317c-7f18-4d3d-817c-244ba60f3f65)
+
+
+![image](https://github.com/user-attachments/assets/b5539d6e-6eb3-4be6-9262-7f7d47250205)
+
+Having been added, I renamed the column to churn_status 
+Now I have the column I will have to change it from string text to whole 
+number 
+
+![image](https://github.com/user-attachments/assets/449a0bd6-0118-40ba-bd69-24bd59c4290c)
+
+
+I will be using this column to do some calculations 
+Now I will be creating another column called Monthly_ChargeStatus 
+Using this formula if [Monthly_charge] < 20 then “<20” else if 
+[Monthly_Charge] < 50 then “20-50” else if [Monthly_Charge] < 100 then “50
+100” else “>100”
+
+![image](https://github.com/user-attachments/assets/c474f355-302e-4779-bdce-fa6e74d9e64a)
+
+The reason for this is that the Monthly_Charge column contains a wide range 
+of values, which can make it difficult to process effectively during the 
+visualization stage. To address this, I created a new column called 
+Monthly_ChargeStatus that categorizes the values into defined ranges, 
+making the data easier to analyze and visualize. 
+
+![image](https://github.com/user-attachments/assets/a024e3fb-0b7c-4d28-9912-c670cd5912ec)
+
+This is the numerous values on it  
+
+Now down below is the new range column
+
+![image](https://github.com/user-attachments/assets/4c780e7b-bb49-46af-8c64-f2343ab73789)
+
+Now I will close and apply changes to the Data 
+
+![image](https://github.com/user-attachments/assets/92387e25-1054-4348-b06e-8c7025d23118)
+
+
+
+
+
+
 
 
 
