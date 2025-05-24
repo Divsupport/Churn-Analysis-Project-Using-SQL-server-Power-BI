@@ -358,6 +358,443 @@ Now I will close and apply changes to the Data
 
 ![image](https://github.com/user-attachments/assets/92387e25-1054-4348-b06e-8c7025d23118)
 
+![image](https://github.com/user-attachments/assets/f7458b85-c8b6-434a-88b2-dbcc8e9c4fe9)
+
+
+Is loading into the worksheet 
+
+Now the Data pane by the right corner is showing the churn_Production 
+
+![image](https://github.com/user-attachments/assets/f0aa6cc6-d32d-4448-bf49-22a53b14b2d4)
+
+At this point I had to save my file by pressing CTRL S and inputting the name as 
+Chun Analysis
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////// 
+
+
+## My Summary Page Blueprint 
+
+This is a list of visuals that will be on my summary page dashboard  
+• Total Customers 
+• New joiners 
+• Total churn 
+• Churn Rate 
+• Gender 
+• Age 
+• Geographic 
+• Services 
+• Payment Method & Contract 
+• Tenure 
+• Churn Distribution 
+• Services
+
+Before I start to create charts, I would like to create a few measures and keep 
+them separate from the main tables, that way is easy for me to edit the 
+measure in case is required in the future. 
+
+• I am going to create a dummy table where I will insert my measures 
+manually to keep all my measures inside of it 
+
+
+![image](https://github.com/user-attachments/assets/21ece9c9-6460-4829-8a0e-66affb55f775)
+
+
+• Now I will click on Enter Data and this page will pop up, this is where I 
+will input my table name as Churn_Measures and column as 
+All_Measures
+
+![image](https://github.com/user-attachments/assets/b57fa24c-7e9f-41c7-a8e6-bcc0c66522d0)
+
+
+Now it has appeared on the Data pane. 
+I will create new different measures by clicking right beside the 
+churn_measure and clicking on new measure and write several Dax 
+formulae’s
+
+
+![image](https://github.com/user-attachments/assets/ede3ef83-433d-48d5-94ea-f3398ffcaf9d)
+
+
+Now I am done with the measures I will be visualizing with; it is time for me to 
+save my files so I wouldn’t lose my project CTRL S 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+## VISUALIZATION 
+
+First visuals I must create are  
+• Total Customers 
+• New joiners 
+• Total Churn 
+• Churn Rate 
+
+I will drop in few Cards from the visualization pane with its measures
+
+
+![image](https://github.com/user-attachments/assets/6f01ba18-adaa-49a0-ae96-0938659e24bf)
+
+
+I changed the churn rate to percentage 1 decimal value, and I did same with 
+the comma as well for both 6418 and 1732. 
+
+Now I am done with the Metrics, I will be diving into the individual categories 
+available which are  
+
+• Gender 
+• Age 
+• Geographic
+• Payment Method & Contract 
+• Tenure 
+• Churn Distribution 
+• Services 
+I am going to use the donut chart for gender by going to the churn_production 
+table and click on gender and then the donut chart. 
+I will drag total churn from the All_Measure table into the donut chart 
+Now I will do some formatting 
+
+As for the Age column, since there are a lot of age digits clustered all around, 
+it wouldn’t be easy to understand it when it gets visualized. 
+So, I will head to transform Data which will take me to power query whereby I 
+will reference the churn_production table.
+
+![image](https://github.com/user-attachments/assets/851f5b6d-ef9d-466c-a403-15a576af4d63)
+
+![image](https://github.com/user-attachments/assets/5f59f90d-5682-44a0-a5ac-ed78f32b45b6)
+
+Changed it to Mapping_AgeGroup
+
+![image](https://github.com/user-attachments/assets/334aff9f-9f6a-4981-9438-c8c1bcbbc2a5)
+
+I created a new column as well with the formulae and I removed every other 
+column beside Age
+
+
+Age Group = if [Age] < 20 then “< 20” else if [Age] < 36 then “20 – 35” else if 
+[Age] < 51 then “36 – 50” else “> 50” 
+AgeGrpSorting = if [Age Group] = “< 20” then 1 else if [Age Group] = “20 – 35” 
+then 2 else if [Age Group] = “36 – 50” then 3 else 4 
+Then I changed Change data type of AgeGrpSorting to Numbers
+
+
+![image](https://github.com/user-attachments/assets/9b816586-0b35-4d7c-81b4-e5894bd26ec9)
+
+Now when I checked the model view section, I saw that my 
+Mapping_AgeGroup is already linked to the churn_Production table. 
+This shows that I can easily use this Age inside of it to filter all columns on the 
+churn_Production table
+
+
+![image](https://github.com/user-attachments/assets/da1ce492-c1ba-409f-ad39-8a86e944196a)
+
+This is a line and stacked chart and my reason for using total customers and 
+churn rate is because I would love to compare my churn rate with the number 
+of customers that are available. 
+
+Now I am done with Demographics I will start with the Account information 
+I will be using the Clustered Bar chart for the Payment method By Total churn 
+I will be using the Clustered Bar chart for the Contract by Churn Rate 
+For Tenure I will have to Transform tenure since it has so many values which 
+might affect my visualization, I will do the same as I did for Age.
+
+![image](https://github.com/user-attachments/assets/30ec988e-f848-440a-9a1f-3dc27e5f9a2c)
+
+
+![image](https://github.com/user-attachments/assets/c524d620-91c9-436f-b030-55a6b8b68847)
+
+
+Power BI has already done the connection on the model view 
+I will be using the Line & stacked Bar Chart for the Total Customers and Churn 
+Rate by Tenure Group
+
+![image](https://github.com/user-attachments/assets/bdea298d-eec9-4097-a9c9-a4966bfdead0)
+
+I dragged the churn rate from the x axis to the y axis to create that line 
+Looking at the x axis, it is not sorted in order so I will have to go back to 
+transform and sort both the Mapping_AgeGroup and TenureMappingGroup 
+
+![image](https://github.com/user-attachments/assets/4c9a18e5-9eaf-4631-a31e-8b05a8f2bd04)
+
+![image](https://github.com/user-attachments/assets/089af7fc-a3eb-4352-b14e-219460b6369c)
+
+![image](https://github.com/user-attachments/assets/46a00689-12c4-4938-a04b-c99406c90fb4)
+
+Is now showing on the Data pane 
+I will do the churn rate by state using the clustered bar chart, since there are a 
+lot of states, I need the top 5 states with the highest churn rate.
+
+![image](https://github.com/user-attachments/assets/65cf262f-cd20-4b13-93af-07cd9122776b)
+
+I filtered it with the churn rate, which I dragged churn rate to the value box and 
+from Basic filtering to Top N 
+• Now, the next step is to visualize Churn Distribution using the 
+churn_category column with a Clustered Bar Chart. 
+• The reason I’m focusing on Total Churn instead of Churn Rate is 
+because I’m analyzing the churn_category, and it’s essential to include 
+all categories in the analysis to get a complete picture. 
+
+![image](https://github.com/user-attachments/assets/1ceb3868-8e02-4cb1-a77c-aecf2474afba)
+
+Now, I will perform the analysis for the Internet_Type column and visualize it 
+using a Clustered Bar Chart. This time, I will include the Churn Rate to better 
+understand how churn varies across different types of internet services. 
+Lastly, I want to create a visual that consolidates all the telecom services into 
+a single view. This will provide a comprehensive overview of service usage or 
+churn patterns across multiple services, making it easier to identify trends and 
+insights immediately.
+
+
+![image](https://github.com/user-attachments/assets/436e2b2e-f73b-4e9b-81ac-33ac5e9cc6de)
+
+Before I start, I need to rearrange all the telecom service columns into a grid 
+format so that I can easily visualize and compare the services in one chart. 
+I clicked on Transform Data, which took me to the churn_production table. I 
+created a reference for it and renamed it to services_production. Then, I used 
+Ctrl to select all the columns related to services, went to the Transform tab 
+above, and clicked on Unpivot Columns to rearrange the data for easier 
+visualization.
+
+![image](https://github.com/user-attachments/assets/59bf6553-5208-47c0-805b-c42106d00720)
+
+Now it added everything into 2 columns with the Attributes and Values 
+which I changed the name to services and status
+
+Now, I will click on Service, which will appear in the Fields pane. Then, I’ll select 
+the Matrix visual from the Visualizations pane. In the Build pane, I will drag 
+Status to the Columns section and Services to the Rows section to display 
+the data in a clear and organized grid format. 
+I will drag Churn Status to the Values section in the Build pane. By default, it 
+shows the sum of Churn Status, but that's not what I want. I need to see the 
+percentage of each service in terms of Churn Status (Yes/No). So, I will click 
+the dropdown on the field in the Values section, go to Show Values As, and 
+select Percent of Row Total to display the data as percentages. 
+
+
+![image](https://github.com/user-attachments/assets/e2e6c8b2-6a5c-4127-95de-2eebfc164a3a)
+
+
+I analyzed churn by incorporating Monthly Charge Range, Marital Status, and 
+Service Usage to understand churn patterns. I calculated churn rates for each 
+service and visualized the distribution of churn reasons as a percentage of total 
+churn. This helps identify which customer groups and services are most 
+associated with churn and why customers are leaving. 
+//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////// 
+
+##Enhance Visualization 
+
+![image](https://github.com/user-attachments/assets/decad40b-e3f9-4686-bbd3-17b40487bc87)
+
+This interactive Power BI dashboard provides a comprehensive analysis of 
+customer churn using demographic, service usage, and contract data. Key 
+business insights are highlighted to help reduce churn and improve customer 
+retentio
+
+Now I will be using the AI Narrative tool on the Visualization Pane  
+
+![image](https://github.com/user-attachments/assets/23e7a3cd-6cd1-49ae-9411-db0e21ee028c)
+
+
+![image](https://github.com/user-attachments/assets/5f49a3a1-570f-4a91-8452-589bbcbbe58b)
+
+When I click on custom it will give me a summary of my entire visual in writing 
+
+![image](https://github.com/user-attachments/assets/feda71a1-e00e-4995-a15a-05ff05eb10ee)
+
+If I filter the visuals on my dashboard this AI copilot gives me a brief 
+explanation of it and what happened, and this is just a starting point for me to 
+start my analysis of the Dashboard 
+
+![image](https://github.com/user-attachments/assets/ea97f3ed-12b1-4daf-9e1e-45665dda7af0)
+
+The "Total Churn by Gender" chart shows that female customers account 
+for 621 churned users, representing 35.8% of total churn. While male churn 
+is higher overall, a deeper look into the "Customers and Total Churn by Age 
+Group" chart reveals a strong issue: 
+• In the 50+ age group, 548 customers churned, which is the highest 
+among all age brackets. 
+• Given the gender breakdown, it’s clear that a significant portion of these 
+churned users are older female members.
+
+
+##Marketing Solution 
+
+Goal 
+If I design a marketing campaign specifically targeting females aged over 50, I 
+could help reduce churn significantly in this high-risk group. This segment 
+accounts for a large portion of the 548 churned customers in the 50+ age 
+group, as shown in the dashboard. By addressing their unique needs and 
+offering personalized support, I can retain more loyal customers and improve 
+overall retention.
+
+![image](https://github.com/user-attachments/assets/02b9f5ad-3ea7-4eef-a92d-f97b9305cf63)
+
+As I analyze further, I can see that most females that was churned was due to 
+competitors
+
+![image](https://github.com/user-attachments/assets/aa77f573-bf34-4ace-b652-e3e1cc69b76d)
+
+When I hovered over the churn category data, I found that many customers 
+left due to better devices and offers from competitors. These two factors 
+fall under the "Competitor" churn reason, which had the highest count. 
+
+Now looking closely at the Grid which is Churn by Services
+
+![image](https://github.com/user-attachments/assets/785a8858-6d66-4445-87e6-9150a349b5bd)
+
+Using a personal benchmark of 60% non-subscription as an indicator of poor 
+service uptake, I analyzed the grid and found that several key services are 
+underutilized by customers — particularly females aged over 50, who are 
+already a high-churn demographic. 
+Services with low adoption (over 60% saying “No”): 
+• Device Protection Plan – 71% 
+• Online Backup – 71.9% 
+• Online Security – 84.6% 
+• Premium Support – 83.5% 
+• Streaming Music – 61.1%
+
+
+##CONCLUSION 
+
+High-Risk Demographics Identified 
+• I Discovered that 35.8% of churners are female, with 50+ age group 
+contributing 548 churned customers which is a critical segment to 
+prioritize. 
+• There were High Competitors with better offers and devices which 
+dominated and exposed vulnerabilities in retention strategies.
+
+
+##Gap in Services Are Exposed 
+
+• This is the Alarming low adoption of services used my 
+customers whereby: 
+• 84.6% lack Online Security 
+• 83.5% don’t use Premium Support 
+• 71% skip Device Protection 
+• Looking at the gaps in % of services not used by customers, 
+you will see the dissatisfaction and competitors switching.
+
+##Payment & Contract Weaknesses 
+• Month-to-month contracts have 3× higher churn risks than 
+annual plans. 
+• Bank transfer users churn 22% more frequently than automatic 
+payment users. 
+
+
+##MY RECOMMENDATION 
+
+"Silver Shield" Loyalty Bundle for Women 50+ 
+• With Total Package Deal of (Device Protection + Premium Support + 
+Streaming Music) at a 40% discounted rate for this demographic. 
+• After 12 months of subscription, customers will be given Free device 
+upgrade which is a strong counter to competitors offers.
+
+##Lock-In & Save Campaign Discount 
+• annual contracts: "Pay for 10 months, get 12” which is a 
+20% effective discount to reduce month-to-month volatility. 
+
+
+##IMPACT I ENABLED 
+• With these Dashboard-Driven Decisions, Executives can now 
+track real-time churn drivers like "Competitor Offers" (23% of 
+churn) vs "Service Dissatisfaction" (18%). 
+• Service Revenue Growth: Closing adoption gaps could 
+generate $1.2M/year from previously unused services. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
