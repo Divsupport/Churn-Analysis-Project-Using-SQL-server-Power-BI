@@ -16,7 +16,7 @@ I Analyzed 7,040 telecom customer records to identify churn drivers and design r
 
 ## 🛠️ ETL Process (SQL Server)
 
-1. **Create Database & Tables**
+1. **Creation of Database & Tables**
 
    * I used SSMS to run `create database Churn_db;` and defined staging table schemas.
 2. **Import Raw Data**
@@ -33,12 +33,12 @@ I Analyzed 7,040 telecom customer records to identify churn drivers and design r
 
 ---
 
-## 📊 Power BI Transformation & Visuals
+## 📊 My Power BI Transformation & Visuals
 
 1. **Data Connection**: Connected to my SQL Server and loaded the `churn_Production` view.
 2. **Calculated Columns**:
 
-   * `churn_status` = 1 if `Customer_Status` = "Churned", else 0.
+   * `churn_status` = if `Customer_Status` = "Churned", else 0.
    * `Monthly_ChargeStatus` buckets: `<20`, `20-50`, `50-100`, `>100`.
 3. **Measures**:
 
@@ -58,7 +58,7 @@ I Analyzed 7,040 telecom customer records to identify churn drivers and design r
 
 ---
 
-## 🔍 Key Insights
+## 🔍 Key Insights I Found
 
 * **High-Risk Segment**: Women aged 50+ account for 548 churners (35.8% of total churn).
 * **Competitor Impact**: 23% of churn is driven by better offers/devices from competitors.
@@ -68,7 +68,7 @@ I Analyzed 7,040 telecom customer records to identify churn drivers and design r
   * Month-to-month plans have 3× higher churn than annual.
   * Bank transfer users churn 22% more than auto-pay customers.
 
-## 💡 Recommendations
+## 💡 My Recommendations
 
 1. **"Silver Shield" Bundle**: Bundle Device Protection, Premium Support, and Streaming Music at 40% off for women 50+. Offer free device upgrades after 12 months.
 2. **Lock-In & Save Campaign**: Annual plans—"Pay for 10 months, get 12"—to reduce month-to-month churn volatility.
@@ -76,10 +76,10 @@ I Analyzed 7,040 telecom customer records to identify churn drivers and design r
 
 ---
 
-## 📈 Impact & Next Steps
+## 📈 The Impact & Next Steps
 
 * Executives can now monitor churn drivers (Competitor Offers vs. Service Dissatisfaction) in real time.
-* Closing service adoption gaps could generate \~\$1.2M/year in additional revenue.
+* Closing service adoption gaps could generate $1.2M/year in additional revenue.
 
 **Future Work**:
 
