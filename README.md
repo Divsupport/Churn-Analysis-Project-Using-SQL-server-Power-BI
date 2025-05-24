@@ -619,7 +619,7 @@ among all age brackets.
 churned users are older female members.
 
 
-##Marketing Solution 
+## Marketing Solution 
 
 Goal 
 If I design a marketing campaign specifically targeting females aged over 50, I 
@@ -656,7 +656,7 @@ Services with low adoption (over 60% saying “No”):
 • Streaming Music – 61.1%
 
 
-##CONCLUSION 
+## CONCLUSION 
 
 High-Risk Demographics Identified 
 • I Discovered that 35.8% of churners are female, with 50+ age group 
@@ -666,7 +666,7 @@ prioritize.
 dominated and exposed vulnerabilities in retention strategies.
 
 
-##Gap in Services Are Exposed 
+## Gap in Services Are Exposed 
 
 • This is the Alarming low adoption of services used my 
 customers whereby: 
@@ -683,7 +683,7 @@ annual plans.
 payment users. 
 
 
-##MY RECOMMENDATION 
+## MY RECOMMENDATION 
 
 "Silver Shield" Loyalty Bundle for Women 50+ 
 • With Total Package Deal of (Device Protection + Premium Support + 
@@ -691,12 +691,12 @@ Streaming Music) at a 40% discounted rate for this demographic.
 • After 12 months of subscription, customers will be given Free device 
 upgrade which is a strong counter to competitors offers.
 
-##Lock-In & Save Campaign Discount 
+## Lock-In & Save Campaign Discount 
 • annual contracts: "Pay for 10 months, get 12” which is a 
 20% effective discount to reduce month-to-month volatility. 
 
 
-##IMPACT I ENABLED 
+## IMPACT I ENABLED 
 • With these Dashboard-Driven Decisions, Executives can now 
 track real-time churn drivers like "Competitor Offers" (23% of 
 churn) vs "Service Dissatisfaction" (18%). 
