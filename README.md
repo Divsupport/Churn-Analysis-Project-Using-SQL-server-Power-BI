@@ -88,6 +88,7 @@ The dbo means database owner which is the default database/schema of the
 SQL SERVER.
 
 ![image](https://github.com/user-attachments/assets/6ed0c576-ab9c-4c26-9947-2767c1701266)
+
 Now this is the preview of the data being loaded.
 
 ![image](https://github.com/user-attachments/assets/bab12561-2e8c-4262-9cf1-ed0f397a29c1)
@@ -154,24 +155,61 @@ joined.
 
 ![image](https://github.com/user-attachments/assets/edea92ef-95fa-426a-b727-0bb80b074ab6)
 
+![image](https://github.com/user-attachments/assets/6211377c-fbd3-4d50-a52b-a400d704d4cc)
+
+In this query, I analyzed how customer status (e.g., Churned, Joined, Stayed) 
+affects revenue contribution: 
+
+• COUNT(Customer_Status) shows how many customers belong to each 
+group. 
+• SUM(Total_Revenue) aggregates the revenue from each status group. 
+• Dividing each group's revenue by the total revenue and multiplying by 
+100 gives the percentage contribution of each group. 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+ ///////////////////////////////////////////////////////////////////////////////////////////////// 
+ 
+And finally, I will start exploring the State column and see how many states 
+represent what percentage of values
 
 
+![image](https://github.com/user-attachments/assets/8be0563e-2bb6-458d-8319-989c8205c9fe)
 
 
+In this query, I analyzed how the state of customers (e.g., Churned, Joined, 
+Stayed) affects their distribution: 
+
+• COUNT(State) shows how many customers belong to each state (such 
+as 'Active', 'Churned', etc.). 
+• The COUNT(State) * 100.0 / (SELECT COUNT (*) FROM churn_main) 
+calculates the percentage of total customers that belong to each state. 
+It compares the count of customers in each state to the total number of 
+customers in the churn_main table. 
+• The ORDER BY Percentage DESC sorts the results so that states with 
+the highest percentage of customers appear at the top of the list. 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+ ///////////////////////////////////////////////////////////////////////////////////////////////// 
 
 
+## Data Exploration – Data Cleaning - Null Value Checking 
+
+Now I will Find Null Values in Each column and Remove Null as Per Column 
+Values. 
+N/B: NULL can create a lot of problems if I ignore it, so I will check the 
+columns for Missing NULL
 
 
+![image](https://github.com/user-attachments/assets/385bbd4e-5e64-4330-8f00-070c38bf93e2)
 
 
+This query checks for missing (NULL) values in each column of the 
+churn_main table. 
 
-
-
-
-
-
-
-
+• It counts how many NULLs are in each column using SUM(CASE WHEN 
+column IS NULL THEN 1 ELSE 0 END). 
+• This result tells me which columns have missing data. 
+• Is First Assigning NULL Values As 1 and else 0 and saves it As an Alias
 
 
 
